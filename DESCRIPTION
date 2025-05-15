@@ -1,8 +1,8 @@
 Package: pqrBayes
 Type: Package
 Title: Bayesian Penalized Quantile Regression
-Version: 1.1.2
-Date: 2025-03-31
+Version: 1.1.3
+Date: 2025-05-14
 Authors@R: c( 
               person("Kun", "Fan", role = "aut"),
               person("Cen", "Wu", role = c("aut", "cre"),email = "wucen@ksu.edu"),
@@ -18,7 +18,7 @@ Description: Bayesian regularized quantile regression utilizing sparse priors to
     coefficient models (Zhou et al.(2023) <doi:10.1016/j.csda.2023.107808>). In particular, 
     valid robust Bayesian inferences under both models in the presence of heavy-tailed errors
     can be validated on finite samples. Additional models including robust Bayesian 
-    group LASSO are also included. The Markov Chain Monte Carlo (MCMC) algorithms 
+    group LASSO and robust Bayesian binary LASSO are also included. The Markov Chain Monte Carlo (MCMC) algorithms 
     of the proposed and alternative models are implemented in C++. 
 Depends: R (>= 3.5.0)
 License: GPL-2
@@ -31,11 +31,11 @@ LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 7.3.2
 NeedsCompilation: yes
 Repository: CRAN
-Packaged: 2025-04-01 02:24:01 UTC; cenwu
+Packaged: 2025-05-15 03:06:57 UTC; cenwu
 Author: Kun Fan [aut],
   Cen Wu [aut, cre],
   Jie Ren [aut],
   Xiaoxi Li [aut],
   Fei Zhou [aut]
 Maintainer: Cen Wu <wucen@ksu.edu>
-Date/Publication: 2025-04-01 03:00:02 UTC
+Date/Publication: 2025-05-15 05:00:02 UTC

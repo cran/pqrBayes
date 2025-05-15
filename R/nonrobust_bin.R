@@ -1,10 +1,10 @@
-NonRobust_lin <- function(g, y, e,iterations,sparse,debugging){
-
+NonRobust_bin <- function(g, y, e,iterations,sparse,debugging){
+  
   p = dim(g)[2]
   
   x = cbind(1,g)
   n = length(y); 
-
+  
   if(!is.null(e)){
     q = dim(e)[2]
     hatAlpha=rep(1,(1+q))
@@ -16,6 +16,7 @@ NonRobust_lin <- function(g, y, e,iterations,sparse,debugging){
     invSigAlpha0 = diag(10^-3, 1)
     w = matrix(1,n,1)
   }
+  ystar = rep(1,n)
   hatBeta = rep(1,p)
   hatInvTauSq = rep(1,p)
   hatLambdaSq=1
@@ -31,8 +32,8 @@ NonRobust_lin <- function(g, y, e,iterations,sparse,debugging){
   
   progress = ifelse(debugging, 10^(floor(log10(iterations))-1), 0)
   if(sparse){
-    fit=BLSS(g, y, w, iterations, hatAlpha, hatBeta, hatInvTauSq, invSigAlpha0, hatPi, hatLambdaSq, hatSigmaSq, aStar, bStar, alpha, gamma, sh1, sh0, progress)}
-  else{fit=BL(g, y, w, iterations, hatBeta, hatAlpha, hatInvTauSq, invSigAlpha0, hatLambdaSq, hatSigmaSq, aStar, bStar, alpha, gamma, progress)}
+    fit=BBLSS(g, y, ystar, w, iterations, hatAlpha, hatBeta, hatInvTauSq, invSigAlpha0, hatPi, hatLambdaSq, hatSigmaSq, aStar, bStar, alpha, gamma, sh1, sh0, progress)}
+  else{fit=BBL(g, y, ystar, w, iterations, hatBeta, hatAlpha, hatInvTauSq, invSigAlpha0, hatLambdaSq, hatSigmaSq, aStar, bStar, alpha, gamma, progress)}
   out=list(fit=fit,iterations=iterations)
   return(out)
 }

@@ -1,5 +1,5 @@
-Robust_lin <- function(g, y, e, quant, iterations,sparse, hyper,debugging){
- 
+Robust_bin <- function(g, y, e, quant, iterations, sparse, hyper,debugging){
+  
   p = dim(g)[2]
   
   x = cbind(1,g)
@@ -16,7 +16,7 @@ Robust_lin <- function(g, y, e, quant, iterations,sparse, hyper,debugging){
     invSigAlpha0 = diag(10^-3, 1)
     w = matrix(1,n,1)
   }
-  
+  ystar = rep(1,n)
   xi1 = (1-2*quant)/(quant*(1-quant))
   xi2 = sqrt(2/(quant*(1-quant)))
   hatBeta=rep(1,p)
@@ -36,8 +36,8 @@ Robust_lin <- function(g, y, e, quant, iterations,sparse, hyper,debugging){
   
   progress = ifelse(debugging, 10^(floor(log10(iterations))-1), 0)
   if(sparse){
-    fit=BRLSS(g, y, w, iterations, hatAlpha, hatBeta, hatTau, hatV, hatSg, invSigAlpha0, hatPi, hatEtaSq, xi1, xi2, r, a, b,sh0_1,sh0_0, progress)}
-  else{fit= BRL(g, y, w, iterations, hatAlpha, hatBeta, hatTau, hatV, hatSg, invSigAlpha0, hatEtaSq, xi1, xi2, r, a, b, progress)}
+    fit=BRBLSS(g, y, ystar, w, iterations, hatAlpha, hatBeta, hatTau, hatV, hatSg, invSigAlpha0, hatPi, hatEtaSq, xi1, xi2, r, a, b,sh0_1,sh0_0, progress)}
+  else{fit= BRBL(g, y, ystar, w, iterations, hatAlpha, hatBeta, hatTau, hatV, hatSg, invSigAlpha0, hatEtaSq, xi1, xi2, r, a, b, progress)}
   out = list(fit=fit,iterations=iterations)
   return(out)
 }

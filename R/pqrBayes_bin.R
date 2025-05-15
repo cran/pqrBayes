@@ -1,6 +1,7 @@
-pqrBayes_lin <- function(g, y, e, quant = 0.5, iterations = 10000, burn.in,
+pqrBayes_bin <- function(g, y, e, quant = 0.5, iterations = 10000, burn.in,
                          robust = TRUE, sparse = TRUE,
                          hyper = NULL, debugging = FALSE) {
+
   
   # Check iterations and burn-in
   if (iterations < 1) stop("iterations must be a positive integer.")
@@ -16,9 +17,9 @@ pqrBayes_lin <- function(g, y, e, quant = 0.5, iterations = 10000, burn.in,
   
   # Call appropriate model
     if (robust) {
-      out <- Robust_lin(g, y, e, quant, iterations, sparse, hyper, debugging)
+      out <- Robust_bin(g, y, e, quant, iterations, sparse, hyper, debugging)
     } else {
-      out <- NonRobust_lin(g, y, e, iterations, sparse, debugging)
+      out <- NonRobust_bin(g, y, e, iterations, sparse, debugging)
     }
   
   # Extract posterior samples

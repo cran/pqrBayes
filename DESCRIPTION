@@ -1,8 +1,8 @@
 Package: pqrBayes
 Type: Package
 Title: Bayesian Penalized Quantile Regression
-Version: 1.2.1
-Date: 2026-03-14
+Version: 1.2.2
+Date: 2026-04-28
 Authors@R: c( 
               person("Kun", "Fan", role = "aut"),
               person("Cen", "Wu", role = c("aut", "cre"),email = "wucen@ksu.edu"),
@@ -35,11 +35,11 @@ LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 7.3.3
 NeedsCompilation: yes
 Repository: CRAN
-Packaged: 2026-03-14 21:58:35 UTC; cenwu
+Packaged: 2026-04-30 03:43:43 UTC; cenwu
 Author: Kun Fan [aut],
   Cen Wu [aut, cre],
   Jie Ren [aut],
   Xiaoxi Li [aut],
   Fei Zhou [aut]
 Maintainer: Cen Wu <wucen@ksu.edu>
-Date/Publication: 2026-03-14 22:20:02 UTC
+Date/Publication: 2026-04-30 07:10:02 UTC
